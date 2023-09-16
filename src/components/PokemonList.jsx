@@ -2,11 +2,11 @@ import React from 'react'
 
 export const PokemonList = ({ children }) => {
   return (
-    <section>
+    <section className='border border-black'>
         <h1>Pokemon List</h1>
-        <div>
+        <ul>
             {children}
-        </div>
+        </ul>
     </section>
   )
 }
