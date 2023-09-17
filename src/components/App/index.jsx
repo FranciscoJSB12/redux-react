@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getPokemonsData } from '../../api'
+import { getPokomensDetails } from '../../api'
 import { setPokemons } from '../../actions'
 import { Layout } from '../Layout'
 import { Searcher } from '../Searcher'
@@ -14,8 +14,8 @@ export const App = () => {
     
     useEffect(() => {
         (async () => {
-            const { results } = await getPokemonsData()
-            dispatch(setPokemons(results))
+            const data = await getPokomensDetails()
+            dispatch(setPokemons(data))
         })()
     }, [])
     
@@ -23,11 +23,11 @@ export const App = () => {
         <Layout>
            <Searcher/>
            <PokemonList>
-               {pokemons?.map((item, index) => (<div 
+              {pokemons ? pokemons.map((item, index) => (<div 
                className='border border-black break-words'
                key={index}>
                     <PokemonCard pokemon={item}/>
-               </div>))}
+               </div>)): <p>Loading, please wait...</p>}
            </PokemonList>
         </Layout>
     )

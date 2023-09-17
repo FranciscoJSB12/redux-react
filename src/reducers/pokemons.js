@@ -1,7 +1,7 @@
 import { SET_POKEMONS } from '../actions/types'
 
 const initialState = {
-    pokemons: []
+    pokemons: null
 }
 
 export const pokemonsReducer = (state = initialState, action) => {
