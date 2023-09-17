@@ -18,14 +18,16 @@ export const App = () => {
             dispatch(setPokemons(results))
         })()
     }, [])
-
+    
     return (
         <Layout>
            <Searcher/>
            <PokemonList>
-               {pokemons?.map((item, index) => (<li key={index}>
-                    <PokemonCard/>
-               </li>))}
+               {pokemons?.map((item, index) => (<div 
+               className='border border-black break-words'
+               key={index}>
+                    <PokemonCard pokemon={item}/>
+               </div>))}
            </PokemonList>
         </Layout>
     )

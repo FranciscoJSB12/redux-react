@@ -1,9 +1,7 @@
 import React from 'react'
 
-export const PokemonCard = () => {
+export const PokemonCard = ({ pokemon }) => {
   return (
-    <>
-      <p>Pokemon Card</p>
-    </>
+    <>{JSON.stringify(pokemon)}</>
   )
 }
