@@ -13,21 +13,23 @@ export const getPokomensDetails = async () => {
             const data = await res.json()
 
             pokemonsList.push({
-                name: data.species.name,
-                image: data.sprites.other.dream_world.front_default
+                id: data.id,
+                name: data.name,
+                image: data.sprites.other.dream_world.front_default,
+                types: data.types
             })
         }
 
         return pokemonsList
 
     } catch (error) {
-        console.warn('ERROR ' + error)
+        console.log('ERROR ' + error)
     }
 }
 
-export const getPokemonsData = async () => {
+const getPokemonsData = async () => {
     try {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=52&offset=0')
         
         if (!res.ok) { throw new Error(res.status) }
 
@@ -36,6 +38,6 @@ export const getPokemonsData = async () => {
         return data
 
     } catch (error) {
-        console.warn('ERROR ' + error)   
+        console.log('ERROR ' + error)   
     }
 }

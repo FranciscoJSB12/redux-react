@@ -6,6 +6,7 @@ import { Layout } from '../Layout'
 import { Searcher } from '../Searcher'
 import { PokemonList } from '../PokemonList'
 import { PokemonCard } from '../PokemonCard'
+import { Loading } from '../Loading'
 import './styles.css'
 
 export const App = () => {
@@ -23,11 +24,9 @@ export const App = () => {
         <Layout>
            <Searcher/>
            <PokemonList>
-              {pokemons ? pokemons.map((item, index) => (<div 
-               className='border border-black break-words'
-               key={index}>
-                    <PokemonCard pokemon={item}/>
-               </div>)): <p>Loading, please wait...</p>}
+              {pokemons ? pokemons.map((item) => 
+              (<PokemonCard key={item.id} pokemon={item}/>)) 
+              : <Loading/>}
            </PokemonList>
         </Layout>
     )
